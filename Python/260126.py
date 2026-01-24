@@ -1,7 +1,2 @@
-q = 1
-
-print("So a la", q)
-
-a = input()
-
+a = '''hello'''''
 print(a)
