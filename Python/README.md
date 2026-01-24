@@ -1,4 +1,4 @@
-# Nhật ký học Python tuần 1 - 19-25/01/2026
+# Nhật ký học Python tuần 1 (19-25/01/2026)
 
 ### 1. Kiểu dữ liệu, nhập và in
 
