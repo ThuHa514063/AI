@@ -48,17 +48,23 @@ a = int(input()) // nhập vào biến a 1 số kiểu nguyên
 a = [1, 2, 3, 4, 5]
 ```
 
+=> Như mảng bên C, có thể thay đổi giá trị trong mảng, có thự tự (a[0], a[1],...)
+
 **- Cấu trúc dữ liệu bộ (tuple):** Kiểu tuple tương tự như kiểu danh sách, nhưng không thể thay đổi (nghĩa là bạn không thể thêm, xóa hoặc sửa đổi các phần tử trong bộ). Các phần tử trong bộ được đặt trong dấu ngoặc đơn (()), và được phân tách bởi dấu phẩy. Ví dụ:
 
 ```
 b = (1, 2, 3, 4, 5)
 ```
 
+=> Như cấu trúc **list** nhưng mà các giá trị đã gán ***không thể đổi*** 
+
 **- Cấu trúc dữ liệu tập hợp (set):** Kiểu set là một tập hợp không có thứ tự và không chứa các phần tử trùng lặp. Các phần tử trong tập hợp được đặt trong dấu ngoặc nhọn ({}), và được phân tách bởi dấu phẩy. Ví dụ:
 
 ```
 c = {1, 2, 3, 4, 5}
 ```
+
+=> Như cấu trúc **tuple** tuy nhiên không có thứ tự hay không thể gọi dạng a[i] và các giá trị thuộc tập hợp không thể trùng nhau
 
 **- Cấu trúc dữ liệu từ điển (dictionary):** Kiểu dictionary là một tập hợp không có thứ tự, có thể thay đổi và có các phần tử được xác định bởi một khóa duy nhất. Các phần tử trong từ điển được đặt trong dấu ngoặc nhọn ({}), và mỗi phần tử bao gồm một cặp khóa-giá trị. Ví dụ:
 
