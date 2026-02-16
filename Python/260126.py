@@ -16,7 +16,7 @@ luck_data = {
     "🎁 Bất Ngờ": ["Quà khủng sắp tới, niềm vui nhân đôi!", "Một bước ngoặt mới đầy thú vị!", "Vạn điều kỳ diệu đang chờ đợi bạn!"]
 }
 
-# --- 3. GIAO DIỆN CSS: Ô NHẬP FULL TRANG & NÚT CÂN ĐỐI ---
+# --- 3. GIAO DIỆN CSS: GIẢM SIZE Ô NHẬP 10PX ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
@@ -54,22 +54,22 @@ st.markdown(f"""
         width: 100%;
     }}
 
-    /* Ô NHẬP TÊN FULL WIDTH (Kéo dài hết khung hình) */
+    /* Ô NHẬP TÊN: GIẢM SIZE (Chiều cao 60->50, Chữ 24->14) */
     div.stTextInput {{
         width: 100% !important; 
-        max-width: 800px !important; /* Dài gần bằng cái khung mờ ở trên */
+        max-width: 800px !important;
     }}
     div.stTextInput > div > div > input {{
         font-family: 'Dancing Script', cursive !important;
-        font-size: 24px !important;
+        font-size: 14px !important; /* Giảm 10px so với trước */
         text-align: center;
-        border-radius: 15px;
-        height: 60px !important;
+        border-radius: 12px;
+        height: 50px !important; /* Giảm 10px chiều cao */
         border: 2px solid #FFD700 !important;
         background-color: rgba(255, 255, 255, 0.9) !important;
     }}
 
-    /* CSS CHUNG CHO NÚT BẤM */
+    /* NÚT BẤM CHUNG */
     .stButton > button {{
         background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%) !important;
         border: 3px solid #ffffff !important;
@@ -84,16 +84,16 @@ st.markdown(f"""
         margin: 0 !important;
     }}
 
-    /* NÚT BẮT ĐẦU (Size nhỏ lại xíu cho cân đối) */
+    /* NÚT BẮT ĐẦU */
     .start-btn-container .stButton > button {{
-        width: 350px !important; /* Độ rộng vừa phải */
+        width: 350px !important;
         height: 80px !important;
     }}
     .start-btn-container .stButton > button p {{
-        font-size: 30px !important; /* Chữ nhỏ lại xíu so với option */
+        font-size: 30px !important;
     }}
 
-    /* CÁC NÚT OPTION (Vẫn giữ nguyên size khổng lồ cho đã) */
+    /* CÁC NÚT OPTION */
     .option-btn-container .stButton > button {{
         width: 100% !important;
         height: 120px !important;
@@ -117,8 +117,7 @@ if 'name' not in st.session_state: st.session_state.name = ""
 if st.session_state.step == 1:
     st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
-    name = st.text_input("", placeholder="Vui lòng nhập tên của bạn để khai xuân...", key="name_input")
-    # Wrap nút bắt đầu trong class riêng để chỉnh size nhỏ lại
+    name = st.text_input("", placeholder="Vui lòng nhập tên của bạn...", key="name_input")
     st.markdown('<div class="start-btn-container">', unsafe_allow_html=True)
     if st.button("Bắt Đầu Hái Lộc ➔", key="start_btn"):
         if name:
