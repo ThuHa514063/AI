@@ -204,7 +204,7 @@ elif st.session_state.step == 3:
     st.balloons()
     st.markdown(f'<div class="glass-box"><div class="title-dragon">Vạn sự như ý</div><div class="text-phoenix">{st.session_state.gift}</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area nav-container">', unsafe_allow_html=True)
-    st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxV3VfO1YyI/giphy.gif")
+    st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif")
     if st.button("Hái lộc khác ↺", key="reset_btn"):
         st.session_state.step = 2
         st.rerun()
