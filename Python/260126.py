@@ -16,7 +16,7 @@ luck_data = {
     "🎁 Bất Ngờ": ["Quà khủng sắp tới, niềm vui nhân đôi!", "Một bước ngoặt mới đầy thú vị!", "Vạn điều kỳ diệu đang chờ đợi bạn!"]
 }
 
-# --- 3. GIAO DIỆN CSS: ÉP FONT VÀ SIZE MẠNH HƠN ---
+# --- 3. GIAO DIỆN CSS: Ô NHẬP FULL TRANG & NÚT CÂN ĐỐI ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
@@ -44,49 +44,65 @@ st.markdown(f"""
         z-index: 100;
     }}
 
-    .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700 !important; font-size: 85px !important; text-shadow: 4px 4px 10px #000000; margin-bottom: 0px; }}
+    .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700 !important; font-size: 85px !important; text-shadow: 4px 4px 10px #000000; }}
     .text-phoenix {{ font-family: 'Dancing Script', cursive !important; color: #F8F9FA !important; font-size: 45px !important; text-shadow: 3px 3px 6px #000000; }}
 
     .interaction-area {{
         margin-top: 450px; 
         text-align: center;
         display: flex; flex-direction: column; align-items: center;
+        width: 100%;
     }}
 
-    /* NHẬP TÊN BÉ LẠI */
-    div.stTextInput {{ width: 280px !important; }}
+    /* Ô NHẬP TÊN FULL WIDTH (Kéo dài hết khung hình) */
+    div.stTextInput {{
+        width: 100% !important; 
+        max-width: 800px !important; /* Dài gần bằng cái khung mờ ở trên */
+    }}
     div.stTextInput > div > div > input {{
         font-family: 'Dancing Script', cursive !important;
-        font-size: 20px !important;
+        font-size: 24px !important;
         text-align: center;
-        border-radius: 10px;
-        height: 45px !important;
+        border-radius: 15px;
+        height: 60px !important;
+        border: 2px solid #FFD700 !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
     }}
 
-    /* THỐNG NHẤT NÚT BẤM - ÉP PHẢI TO VÀ ĐÚNG FONT */
+    /* CSS CHUNG CHO NÚT BẤM */
     .stButton > button {{
         background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%) !important;
         border: 3px solid #ffffff !important;
         border-radius: 25px !important;
-        width: 100% !important;
-        height: 120px !important;
         box-shadow: 0px 10px 20px rgba(0,0,0,0.6) !important;
         margin-bottom: 15px !important;
     }}
-
-    /* NHẮM THẲNG VÀO CHỮ TRONG NÚT */
     .stButton > button p {{
         font-family: 'Dancing Script', cursive !important;
-        font-size: 45px !important; /* PHÓNG SIÊU TO */
         font-weight: 900 !important;
         color: #800000 !important;
         margin: 0 !important;
     }}
 
-    .stButton > button:hover {{
-        transform: scale(1.05);
-        background: #ffffff !important;
+    /* NÚT BẮT ĐẦU (Size nhỏ lại xíu cho cân đối) */
+    .start-btn-container .stButton > button {{
+        width: 350px !important; /* Độ rộng vừa phải */
+        height: 80px !important;
     }}
+    .start-btn-container .stButton > button p {{
+        font-size: 30px !important; /* Chữ nhỏ lại xíu so với option */
+    }}
+
+    /* CÁC NÚT OPTION (Vẫn giữ nguyên size khổng lồ cho đã) */
+    .option-btn-container .stButton > button {{
+        width: 100% !important;
+        height: 120px !important;
+    }}
+    .option-btn-container .stButton > button p {{
+        font-size: 45px !important;
+    }}
+
+    .stButton > button:hover {{ transform: scale(1.03); background: #ffffff !important; }}
     .stButton > button:hover p {{ color: #FF0000 !important; }}
 
     [data-testid="stImage"] img {{ width: 100% !important; max-width: 600px !important; border-radius: 25px; border: 5px solid #FFD700; }}
@@ -101,18 +117,20 @@ if 'name' not in st.session_state: st.session_state.name = ""
 if st.session_state.step == 1:
     st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
-    name = st.text_input("", placeholder="Nhập tên của bạn...", key="name_input")
+    name = st.text_input("", placeholder="Vui lòng nhập tên của bạn để khai xuân...", key="name_input")
+    # Wrap nút bắt đầu trong class riêng để chỉnh size nhỏ lại
+    st.markdown('<div class="start-btn-container">', unsafe_allow_html=True)
     if st.button("Bắt Đầu Hái Lộc ➔", key="start_btn"):
         if name:
             st.session_state.name = name
             st.session_state.step = 2
             st.rerun()
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div></div>', unsafe_allow_html=True)
 
 # BƯỚC 2: CHỌN OPTION
 elif st.session_state.step == 2:
     st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một đại lộc dưới đây</div></div>', unsafe_allow_html=True)
-    st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
+    st.markdown('<div class="interaction-area option-btn-container">', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     options = list(luck_data.keys())
     for i, opt in enumerate(options):
@@ -126,7 +144,7 @@ elif st.session_state.step == 2:
 # BƯỚC 3: KẾT QUẢ
 elif st.session_state.step == 3:
     st.markdown(f'<div class="glass-box"><div class="title-dragon">Vạn Sự Như Ý</div><div class="text-phoenix">{st.session_state.gift}</div></div>', unsafe_allow_html=True)
-    st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
+    st.markdown('<div class="interaction-area start-btn-container">', unsafe_allow_html=True)
     st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxV3VfO1YyI/giphy.gif")
     if st.button("Hái Lộc Khác ↺", key="reset_btn"):
         st.session_state.step = 2
