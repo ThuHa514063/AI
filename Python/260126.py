@@ -3,184 +3,151 @@ import random
 import time
 
 # --- 1. CẤU HÌNH TRANG ---
-st.set_page_config(page_title="Chúc Mừng Năm Mới Bính Ngọ 2026", page_icon="🐎", layout="centered")
+st.set_page_config(page_title="Chúc Mừng Năm Mới 2026", page_icon="🐎", layout="centered")
 
-# --- 2. GIAO DIỆN CSS, PHÁO HOA & CĂN GIỮA ---
-background_image_url = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
+# --- 2. GIAO DIỆN CSS HIỆN ĐẠI ---
+# Link background bạn gửi
+bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
 
-    /* Nền trang web */
     .stApp {{
-        background-image: url("{background_image_url}");
+        background-image: url("{bg_link}");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }}
-    
-    /* Lớp phủ tối để nổi chữ */
+
+    /* Tạo một lớp phủ nhẹ để bảo vệ mắt */
     .stApp::before {{
         content: "";
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(0, 0, 0, 0.6); 
+        background: rgba(0, 0, 0, 0.2);
         z-index: -1;
     }}
 
-    /* Font chữ nghệ thuật */
+    /* Container bao quanh nội dung cho đẹp */
+    .main-container {{
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        text-align: center;
+    }}
+
     h1 {{
-        font-family: 'Great Vibes', cursive !important;
+        font-family: 'Pacifico', cursive !important;
         color: #FFD700 !important;
-        font-size: 80px !important;
-        text-shadow: 3px 3px 6px #000000;
-        text-align: center;
+        font-size: 60px !important;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     }}
 
-    h2, h3, p, .stMarkdown {{
-        font-family: 'Dancing Script', cursive !important;
-        color: #F8F9FA !important;
-        font-size: 32px !important;
-        text-shadow: 2px 2px 4px #000000;
-        text-align: center;
+    h2, h3, p, div, span, label {{
+        font-family: 'Montserrat', sans-serif !important;
+        color: white !important;
     }}
 
-    /* THỦ THUẬT CĂN GIỮA ẢNH VÀ GIF TUYỆT ĐỐI */
+    /* Căn giữa Image/Gif tuyệt đối */
     [data-testid="stImage"] {{
         display: flex !important;
         justify-content: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }}
-    
-    [data-testid="stImage"] img {{
-        border-radius: 15px;
-        border: 3px solid #FFD700;
+        margin: 20px auto !important;
     }}
 
-    /* Nút bấm */
-    .stButton>button {{
-        border-radius: 30px;
+    [data-testid="stImage"] img {{
+        border-radius: 15px;
         border: 2px solid #FFD700;
-        background-color: rgba(220, 20, 60, 0.8);
-        color: white;
-        font-family: 'Dancing Script', cursive;
-        font-size: 22px;
-        width: 100%;
-        transition: 0.3s;
+        max-width: 100%;
     }}
+
+    /* Nút bấm hiện đại */
+    .stButton>button {{
+        background: linear-gradient(45deg, #FFD700, #FFA500);
+        color: #800000 !important;
+        font-weight: bold !important;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 25px;
+        font-size: 18px;
+        transition: 0.3s;
+        width: 100%;
+    }}
+
     .stButton>button:hover {{
-        background-color: #FFD700;
-        color: #000;
+        transform: scale(1.05);
+        box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.6);
     }}
     </style>
-    
-    /* Script Pháo hoa */
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
+        var end = Date.now() + (15 * 1000);
         function fire() {{
-            confetti({{ 
-                particleCount: 100, 
-                spread: 70, 
-                origin: {{ y: 0.6 }}, 
-                colors: ['#ff0000', '#ffd700', '#ffffff'] 
-            }});
+            confetti({{ particleCount: 3, angle: 60, spread: 55, origin: {{ x: 0 }}, colors: ['#FFD700', '#FF0000'] }});
+            confetti({{ particleCount: 3, angle: 120, spread: 55, origin: {{ x: 1 }}, colors: ['#FFD700', '#FF0000'] }});
+            if (Date.now() < end) {{ requestAnimationFrame(fire); }}
         }}
-        setInterval(fire, 3000);
         fire();
     </script>
 """, unsafe_allow_html=True)
 
-# --- 3. KHO LỜI CHÚC NGẪU NHIÊN ---
-luck_messages = {
-    "💰 Tài Lộc": [
-        "Tiền vào như nước, ví luôn căng đầy!",
-        "Mã đáo thành công, vạn sự như ý!",
-        "Khai xuân phú quý, lộc phát vinh hoa!"
-    ],
-    "🌸 Tình Duyên": [
-        "Năm nay có đôi, hạnh phúc rạng ngời!",
-        "Tình duyên phơi phới, sớm gặp ý trung nhân!",
-        "Yêu thương đong đầy, vạn dặm bình an!"
-    ],
-    "🐎 Sức Khỏe": [
-        "Khỏe như ngựa chiến, bền bỉ dẻo dai!",
-        "Tinh thần sảng khoái, trẻ mãi không già!",
-        "Cả năm mạnh khỏe, không chút âu lo!"
-    ]
+# --- 3. LOGIC ---
+if 'step' not in st.session_state: st.session_state.step = 1
+if 'name' not in st.session_state: st.session_state.name = ""
+
+luck_dict = {
+    "💰 Tiền Tài": ["Mã đáo thành công, tiền vào như nước!", "Năm mới Bính Ngọ, lộc phát đầy kho!"],
+    "❤️ Tình Duyên": ["Hạnh phúc viên mãn, sớm tìm thấy chân ái!", "Tình duyên nở rộ, vui vẻ cả năm!"],
+    "🐎 Sức Khỏe": ["Khỏe như ngựa chiến, vạn dặm bình an!", "Sức khỏe dồi dào, tinh thần minh mẫn!"]
 }
 
-# --- 4. QUẢN LÝ BƯỚC CHẠY ---
-if 'step' not in st.session_state:
-    st.session_state.step = 1
-if 'name' not in st.session_state:
-    st.session_state.name = ""
+# --- 4. GIAO DIỆN ---
+st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
-# --- 5. GIAO DIỆN TỪNG BƯỚC ---
-
-# BƯỚC 1: NHẬP TÊN
 if st.session_state.step == 1:
-    st.title("Chúc Mừng Năm Mới")
-    st.write("Bính Ngọ 2026")
-    name_input = st.text_input("Cho mình biết tên bạn nhé:", placeholder="Nhập tên tại đây...")
-    if st.button("Bắt Đầu ➔"):
-        if name_input:
-            st.session_state.name = name_input
+    st.title("Happy New Year")
+    st.subheader("🏮 Xuân Bính Ngọ 2026 🏮")
+    name = st.text_input("Vui lòng nhập tên của bạn:", placeholder="Tên bạn là...")
+    if st.button("Bắt đầu hái lộc ➔"):
+        if name:
+            st.session_state.name = name
             st.session_state.step = 2
             st.rerun()
 
-# BƯỚC 2: CHỌN GÓI QUÀ (BƯỚC 1 SẼ BIẾN MẤT)
 elif st.session_state.step == 2:
     st.title(f"Chào {st.session_state.name}")
-    st.subheader("Hãy chọn một túi lộc may mắn:")
-    
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        if st.button("💰 Tài Lộc"):
-            st.session_state.gift = random.choice(luck_messages["💰 Tài Lộc"])
-            st.session_state.step = 3
-            st.rerun()
-    with col2:
-        if st.button("🌸 Tình Duyên"):
-            st.session_state.gift = random.choice(luck_messages["🌸 Tình Duyên"])
-            st.session_state.step = 3
-            st.rerun()
-    with col3:
-        if st.button("🐎 Sức Khỏe"):
-            st.session_state.gift = random.choice(luck_messages["🐎 Sức Khỏe"])
-            st.session_state.step = 3
-            st.rerun()
+    st.write("Hãy chọn một gói quà may mắn cho năm mới:")
+    cols = st.columns(3)
+    for i, gift_type in enumerate(luck_dict.keys()):
+        with cols[i]:
+            if st.button(gift_type):
+                st.session_state.gift = random.choice(luck_dict[gift_type])
+                st.session_state.step = 3
+                st.rerun()
 
-# BƯỚC 3: MÀN HÌNH CUỐI (CĂN GIỮA GIF & ẢNH RIÊNG)
 elif st.session_state.step == 3:
     st.title("Vạn Sự Như Ý")
     st.balloons()
-    
     st.success(f"Chúc {st.session_state.name}: {st.session_state.gift}")
     
-    # GIF Ngựa (Mặc định - Đã căn giữa bằng CSS)
+    # GIF Ngựa
     st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxV3VfO1YyI/giphy.gif", width=300)
 
-    st.write("---")
-    
-    # --- LOGIC KIỂM TRA TÊN ĐỂ TẶNG ẢNH ---
-    ten_nhap = st.session_state.name.lower().strip()
-    
-    # NOTE: BẠN CHỈNH TÊN VÀ LINK ẢNH Ở ĐÂY
-    if ten_nhap == "nguyễn văn a": # Thay bằng tên bạn muốn
-        st.write("🎁 Quà tặng dành riêng cho bạn A:")
-        st.image("LINK_ẢNH_CỦA_A", caption="Hình ảnh bí mật của bạn!")
-        
-    elif ten_nhap == "bé iu": # Ví dụ cho người yêu
-        st.write("💖 Món quà ngọt ngào cho bé yêu:")
-        st.image("LINK_ẢNH_CRUSH", caption="Chúc em luôn xinh đẹp!")
-        
+    # Kiểm tra tên riêng để tặng quà
+    name_check = st.session_state.name.lower().strip()
+    if name_check == "tên_của_bạn": # Thay tên và link ở đây
+        st.write("🎁 Quà đặc biệt cho bạn:")
+        st.image("LINK_ẢNH_RIÊNG")
     else:
-        # Nếu không trúng tên nào, hiện ảnh Tết ngẫu nhiên
-        st.write("🎁 Một món quà ngẫu nhiên tặng bạn:")
-        st.image(f"https://picsum.photos/400/300?random={random.randint(1,500)}", caption="May mắn cả năm nhé!")
+        st.write("🎁 Món quà ngẫu nhiên tặng bạn:")
+        st.image(f"https://picsum.photos/400/300?random={random.randint(1,100)}")
 
     if st.button("Quay lại từ đầu ↺"):
         st.session_state.step = 1
         st.rerun()
+
+st.markdown('</div>', unsafe_allow_html=True)
