@@ -1,43 +1,33 @@
-# # a = (1, 2, 3, 4, 5)
+import streamlit as st
+import time
 
-# # for i in a:
-# #     if i % 2 == 0:
-# #         i = 1
-# #     print(i)
-    
-# # b = [1, 2, 3, 4, 5]
+# Cấu hình trang
+st.set_page_config(page_title="Chúc Mừng Năm Mới 2026", page_icon="🧧")
 
-# # for i in range(len(b)):
-# #     if i % 2 == 0:
-# #         b[i] = 0
-# #     print(b[i])
-    
-# # c = {1, 2, 3, 4}
+st.title("🧧 Chúc Mừng Năm Mới Ất Tỵ 2026")
 
-# # for i in c:
-# #     print(i)
+# Nhập tên
+name = st.text_input("Nhập tên của bạn để nhận quà:", placeholder="Ví dụ: Nguyễn Văn A")
 
-# d = {"name": "John", "age": 30, "score": 8}
-# print(d)
+# Lựa chọn quà tặng
+option = st.selectbox(
+    "Bạn mong muốn điều gì nhất trong năm mới?",
+    ("Sức khỏe dồi dào", "Tiền vào như nước", "Người yêu vây quanh", "Học hành tấn tới")
+)
 
-# for k, v in d.items():
-#     if k == "age":
-#         d[k] = 18
-#     if isinstance(v, int):
-#         d[k] += 1
-
-# print(d)
-# kshjaljkhsdx
-
-a = ["Hà", "Cảnh", "Ngọc", "Trường"]
-print(a[2])
-a.append("Đăng")
-print(a)
-a.pop()
-print(a)
-a.pop(1)
-print(a)
-a.extend(["Cảnh", "Đăng"])
-print(a)
-a.remove("Cảnh")
-print(a)
+# Nút bấm kích hoạt hiệu ứng
+if st.button("Mở quà ngay! 🎁"):
+    if name:
+        st.balloons() # Hiệu ứng bóng bay
+        st.snow()     # Hiệu ứng tuyết rơi (giống hoa mai/đào rơi)
+        
+        with st.spinner('Đang chuẩn bị lời chúc đặc biệt...'):
+            time.sleep(2)
+            
+        st.success(f"Chúc mừng {name}!")
+        st.write(f"Năm 2026, chúc bạn sẽ đạt được: **{option}**! 🧨🧨🧨")
+        
+        # Thêm một tấm ảnh/GIF động (Bạn có thể thay link ảnh tùy ý)
+        st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxV3VfO1YyI/giphy.gif")
+    else:
+        st.warning("Hãy nhập tên trước khi mở quà nhé!")
