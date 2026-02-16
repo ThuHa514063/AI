@@ -6,7 +6,7 @@ st.set_page_config(page_title="Chúc Mừng Năm Mới 2026", page_icon="🐎", 
 
 # --- PHẦN 1: CÀI ĐẶT BACKGROUND & PHÁO HOA ---
 # Bạn có thể thay link ảnh nền ở dòng 'background-image' bên dưới
-background_image_url = "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2069&auto=format&fit=crop" 
+background_image_url = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725" 
 
 st.markdown(f"""
     <style>
@@ -25,7 +25,7 @@ st.markdown(f"""
         z-index: -1;
     }}
     h1, h2, h3, p, .stMarkdown {{
-        color: #FFD700 !important; /* Màu vàng đồng cho hợp không khí Tết */
+        color: #FF4B4B !important; /* Màu vàng đồng cho hợp không khí Tết */
         text-shadow: 2px 2px 4px #000000;
         text-align: center;
     }}
