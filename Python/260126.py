@@ -6,49 +6,17 @@ st.set_page_config(page_title="Chúc Mừng Năm Mới 2026", page_icon="🐎", 
 
 # --- 2. KHO LỜI CHÚC (RANDOM) ---
 luck_data = {
-    "❤️ Tình Duyên": [
-        "Tình duyên nở rộ, sớm tìm thấy nửa kia đích thực!",
-        "Hạnh phúc viên mãn, tình cảm gia đình thêm gắn kết!",
-        "Vạn người theo đuổi, nhận được lời tỏ tình như ý!"
-    ],
-    "💼 Sự Nghiệp": [
-        "Công việc hanh thông, thăng quan tiến chức vèo vèo!",
-        "Sự nghiệp bứt phá, khẳng định được vị thế bản thân!",
-        "Gặp được quý nhân phù trợ, mọi việc đều suôn sẻ!"
-    ],
-    "🐎 Sức Khỏe": [
-        "Khỏe như ngựa chiến, cả năm không lo ốm đau!",
-        "Tinh thần minh mẫn, năng lượng dồi dào mỗi ngày!",
-        "Thân cường tật nhược, dẻo dai vạn dặm bình an!"
-    ],
-    "💰 Tiền Tài": [
-        "Tiền vào như nước sông Đà, tiền ra nhỏ giọt như cà phê phin!",
-        "Lộc phát đầy kho, ví luôn dày cộm, vàng bạc đầy tay!",
-        "Đầu tư đâu thắng đó, tài lộc bủa vây cả năm!"
-    ],
-    "🏠 Gia Đình": [
-        "Gia đạo bình an, trên dưới thuận hòa, ấm êm hạnh phúc!",
-        "Cả nhà sum vầy, tiếng cười rộn rã suốt cả năm!",
-        "Con cháu hiếu thảo, ông bà bách niên giai lão!"
-    ],
-    "🎓 Học Tập": [
-        "Học một biết mười, thi cử đỗ đạt vị trí dẫn đầu!",
-        "Kiến thức uyên thâm, mở mang trí tuệ, đạt học bổng cao!",
-        "Đường học vấn rộng mở, tìm được đam mê đích thực!"
-    ],
-    "🍀 May Mắn": [
-        "Vạn sự như ý, tỷ sự như mơ, triệu điều bất ngờ!",
-        "Quay tay vận may tới, làm gì cũng gặp thuận lợi!",
-        "Vận khí hanh thông, hóa hung thành cát, vạn sự bình an!"
-    ],
-    "🎁 Bất Ngờ": [
-        "Một món quà vô giá sắp đến với bạn trong tháng này!",
-        "Cuộc sống sẽ có bước ngoặt mới đầy thú vị và hạnh phúc!",
-        "Niềm vui nhân đôi, vạn điều kỳ diệu!"
-    ]
+    "❤️ Tình Duyên": ["Hạnh phúc viên mãn, sớm tìm thấy nửa kia!", "Tình duyên nở rộ, vạn người theo đuổi!", "Năm mới có hỷ sự, tình cảm thăng hoa!"],
+    "💼 Sự Nghiệp": ["Công thành danh toại, thăng quan tiến chức!", "Sự nghiệp bứt phá, khẳng định vị thế!", "Quý nhân phù trợ, làm gì thắng đó!"],
+    "🐎 Sức Khỏe": ["Khỏe như ngựa chiến, vạn dặm bình an!", "Năng lượng dồi dào, tinh thần minh mẫn!", "Thân cường tật nhược, trẻ mãi không già!"],
+    "💰 Tiền Tài": ["Tiền vào như nước, ví luôn căng đầy!", "Lộc phát đầy kho, vàng bạc đầy tay!", "Đầu tư đâu thắng đó, tài lộc bủa vây!"],
+    "🏠 Gia Đình": ["Gia đạo bình an, ấm êm hạnh phúc!", "Cả nhà sum vầy, tiếng cười rộn rã!", "Trên dưới thuận hòa, vạn sự như ý!"],
+    "🎓 Học Tập": ["Học một biết mười, thi cử đỗ đạt!", "Kiến thức uyên thâm, đạt học bổng cao!", "Đường học rộng mở, công danh rạng rỡ!"],
+    "🍀 May Mắn": ["Vạn sự như ý, tỷ sự như mơ!", "Cầu được ước thấy, may mắn mỉm cười!", "Vận khí hanh thông, hóa hung thành cát!"],
+    "🎁 Bất Ngờ": ["Quà khủng sắp tới, niềm vui nhân đôi!", "Một bước ngoặt mới đầy thú vị!", "Vạn điều kỳ diệu đang chờ đợi bạn!"]
 }
 
-# --- 3. GIAO DIỆN CSS: THỐNG NHẤT FONT & SIZE ---
+# --- 3. GIAO DIỆN CSS: ÉP FONT VÀ SIZE MẠNH HƠN ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
@@ -67,79 +35,73 @@ st.markdown(f"""
         top: 5%; left: 50%;
         transform: translateX(-50%);
         width: 95%; max-width: 900px;
-        background: rgba(139, 0, 0, 0.7); 
+        background: rgba(139, 0, 0, 0.75); 
         backdrop-filter: blur(15px);
         padding: 30px 20px;
         border-radius: 30px;
         border: 3px solid #FFD700;
         text-align: center;
         z-index: 100;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }}
 
-    .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700 !important; font-size: 80px !important; text-shadow: 4px 4px 10px #000000; margin: 0; }}
+    .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700 !important; font-size: 85px !important; text-shadow: 4px 4px 10px #000000; margin-bottom: 0px; }}
     .text-phoenix {{ font-family: 'Dancing Script', cursive !important; color: #F8F9FA !important; font-size: 45px !important; text-shadow: 3px 3px 6px #000000; }}
 
     .interaction-area {{
-        margin-top: 420px; 
+        margin-top: 450px; 
         text-align: center;
-        padding-bottom: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: flex; flex-direction: column; align-items: center;
     }}
 
-    /* NHẬP TÊN GỌN GÀNG */
+    /* NHẬP TÊN BÉ LẠI */
     div.stTextInput {{ width: 280px !important; }}
     div.stTextInput > div > div > input {{
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        border-radius: 10px;
-        text-align: center;
-        font-family: 'Dancing Script', cursive;
+        font-family: 'Dancing Script', cursive !important;
         font-size: 20px !important;
+        text-align: center;
+        border-radius: 10px;
         height: 45px !important;
     }}
 
-    /* THỐNG NHẤT TOÀN BỘ NÚT BẤM (CÙNG FONT - CÙNG SIZE LỚN) */
+    /* THỐNG NHẤT NÚT BẤM - ÉP PHẢI TO VÀ ĐÚNG FONT */
     .stButton > button {{
         background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%) !important;
-        color: #800000 !important;
-        font-family: 'Dancing Script', cursive !important; /* Đổi về font chung */
-        font-weight: 900 !important;
-        font-size: 40px !important; /* Size to đồng nhất */
-        border-radius: 25px !important;
         border: 3px solid #ffffff !important;
+        border-radius: 25px !important;
         width: 100% !important;
-        height: 110px !important; /* Chiều cao nút đồng nhất */
-        margin-bottom: 20px !important;
-        box-shadow: 0px 10px 20px rgba(0,0,0,0.6);
-        transition: all 0.3s ease;
+        height: 120px !important;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.6) !important;
+        margin-bottom: 15px !important;
+    }}
+
+    /* NHẮM THẲNG VÀO CHỮ TRONG NÚT */
+    .stButton > button p {{
+        font-family: 'Dancing Script', cursive !important;
+        font-size: 45px !important; /* PHÓNG SIÊU TO */
+        font-weight: 900 !important;
+        color: #800000 !important;
+        margin: 0 !important;
     }}
 
     .stButton > button:hover {{
         transform: scale(1.05);
-        background: linear-gradient(135deg, #ffffff 0%, #FFD700 100%) !important;
+        background: #ffffff !important;
     }}
+    .stButton > button:hover p {{ color: #FF0000 !important; }}
 
     [data-testid="stImage"] img {{ width: 100% !important; max-width: 600px !important; border-radius: 25px; border: 5px solid #FFD700; }}
     </style>
 """, unsafe_allow_html=True)
 
-# --- 4. SESSION STATE ---
+# --- 4. LOGIC ---
 if 'step' not in st.session_state: st.session_state.step = 1
 if 'name' not in st.session_state: st.session_state.name = ""
-if 'gift' not in st.session_state: st.session_state.gift = ""
-
-# --- 5. LOGIC ---
 
 # BƯỚC 1: TRANG CHỦ
 if st.session_state.step == 1:
-    st.markdown("""<div class="glass-box"><div class="title-dragon">Happy New Year</div>
-                <div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>""", unsafe_allow_html=True)
-    
+    st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
-    name = st.text_input("", placeholder="Tên bạn là...", key="name_input")
-    # Nút "Bắt đầu" giờ đã cùng font và size to như các Option
+    name = st.text_input("", placeholder="Nhập tên của bạn...", key="name_input")
     if st.button("Bắt Đầu Hái Lộc ➔", key="start_btn"):
         if name:
             st.session_state.name = name
@@ -147,16 +109,12 @@ if st.session_state.step == 1:
             st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# BƯỚC 2: CHỌN OPTION (CÙNG FONT & SIZE VỚI TRANG CHỦ)
+# BƯỚC 2: CHỌN OPTION
 elif st.session_state.step == 2:
-    st.markdown(f"""<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div>
-                <div class="text-phoenix">Chọn một đại lộc dưới đây</div></div>""", unsafe_allow_html=True)
-    
+    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một đại lộc dưới đây</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
-    
     col1, col2 = st.columns(2)
     options = list(luck_data.keys())
-    
     for i, opt in enumerate(options):
         with (col1 if i % 2 == 0 else col2):
             if st.button(opt, key=f"big_opt_{i}"):
@@ -167,12 +125,9 @@ elif st.session_state.step == 2:
 
 # BƯỚC 3: KẾT QUẢ
 elif st.session_state.step == 3:
-    st.markdown(f"""<div class="glass-box"><div class="title-dragon">Vạn Sự Như Ý</div>
-                <div class="text-phoenix">{st.session_state.gift}</div></div>""", unsafe_allow_html=True)
-    
+    st.markdown(f'<div class="glass-box"><div class="title-dragon">Vạn Sự Như Ý</div><div class="text-phoenix">{st.session_state.gift}</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
     st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxV3VfO1YyI/giphy.gif")
-    
     if st.button("Hái Lộc Khác ↺", key="reset_btn"):
         st.session_state.step = 2
         st.rerun()
