@@ -48,7 +48,7 @@ luck_data = {
     ]
 }
 
-# --- 3. GIAO DIỆN CSS: TẬP TRUNG PHÓNG TO OPTION ---
+# --- 3. GIAO DIỆN CSS: THỐNG NHẤT FONT & SIZE ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
@@ -84,10 +84,13 @@ st.markdown(f"""
         margin-top: 420px; 
         text-align: center;
         padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }}
 
-    /* NHẬP TÊN BÉ LẠI & GỌN */
-    div.stTextInput {{ width: 250px !important; margin: 0 auto !important; }}
+    /* NHẬP TÊN GỌN GÀNG */
+    div.stTextInput {{ width: 280px !important; }}
     div.stTextInput > div > div > input {{
         background-color: rgba(255, 255, 255, 0.95) !important;
         border-radius: 10px;
@@ -95,29 +98,26 @@ st.markdown(f"""
         font-family: 'Dancing Script', cursive;
         font-size: 20px !important;
         height: 45px !important;
-        border: 2px solid #FFD700 !important;
     }}
 
-    /* NÚT OPTION SIÊU TO KHỔNG LỒ */
+    /* THỐNG NHẤT TOÀN BỘ NÚT BẤM (CÙNG FONT - CÙNG SIZE LỚN) */
     .stButton > button {{
         background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%) !important;
         color: #800000 !important;
-        font-family: 'Dancing Script', cursive !important;
+        font-family: 'Dancing Script', cursive !important; /* Đổi về font chung */
         font-weight: 900 !important;
-        font-size: 42px !important; /* Tăng size chữ */
+        font-size: 40px !important; /* Size to đồng nhất */
         border-radius: 25px !important;
         border: 3px solid #ffffff !important;
         width: 100% !important;
-        height: 120px !important; /* Tăng chiều cao nút */
-        margin-bottom: 25px !important;
+        height: 110px !important; /* Chiều cao nút đồng nhất */
+        margin-bottom: 20px !important;
         box-shadow: 0px 10px 20px rgba(0,0,0,0.6);
         transition: all 0.3s ease;
-        text-transform: uppercase;
     }}
 
     .stButton > button:hover {{
-        transform: scale(1.05) translateY(-5px);
-        box-shadow: 0px 15px 25px rgba(255, 215, 0, 0.5);
+        transform: scale(1.05);
         background: linear-gradient(135deg, #ffffff 0%, #FFD700 100%) !important;
     }}
 
@@ -132,14 +132,14 @@ if 'gift' not in st.session_state: st.session_state.gift = ""
 
 # --- 5. LOGIC ---
 
-# BƯỚC 1: NHẬP TÊN
+# BƯỚC 1: TRANG CHỦ
 if st.session_state.step == 1:
     st.markdown("""<div class="glass-box"><div class="title-dragon">Happy New Year</div>
                 <div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>""", unsafe_allow_html=True)
     
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
     name = st.text_input("", placeholder="Tên bạn là...", key="name_input")
-    # Nút bắt đầu cũng to để đồng bộ
+    # Nút "Bắt đầu" giờ đã cùng font và size to như các Option
     if st.button("Bắt Đầu Hái Lộc ➔", key="start_btn"):
         if name:
             st.session_state.name = name
@@ -147,14 +147,13 @@ if st.session_state.step == 1:
             st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# BƯỚC 2: CHỌN TÚI LỘC (OPTION CỰC ĐẠI)
+# BƯỚC 2: CHỌN OPTION (CÙNG FONT & SIZE VỚI TRANG CHỦ)
 elif st.session_state.step == 2:
     st.markdown(f"""<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div>
                 <div class="text-phoenix">Chọn một đại lộc dưới đây</div></div>""", unsafe_allow_html=True)
     
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
     
-    # Chia lưới 2 cột
     col1, col2 = st.columns(2)
     options = list(luck_data.keys())
     
@@ -168,7 +167,6 @@ elif st.session_state.step == 2:
 
 # BƯỚC 3: KẾT QUẢ
 elif st.session_state.step == 3:
-    st.balloons()
     st.markdown(f"""<div class="glass-box"><div class="title-dragon">Vạn Sự Như Ý</div>
                 <div class="text-phoenix">{st.session_state.gift}</div></div>""", unsafe_allow_html=True)
     
