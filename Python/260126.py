@@ -104,16 +104,18 @@ st.markdown(f"""
         max-width: 650px !important; /* Tăng từ 450 lên 650px cho GIF to rõ */
         width: 100% !important;
         height: auto !important;
-        border-radius: 25px;
-        border: 5px solid #FFD700;
-        box-shadow: 0px 10px 40px rgba(0,0,0,0.6);
-        margin: 20px auto !important;
+        border-radius: 50px;
+        border: 30px solid #FFD700;
+        box-shadow: 25px 35px 65px rgba(0,0,0,0.6);
+        margin: 45px auto !important;
     }}
 
     .stButton > button:hover {{ transform: scale(1.03) !important; background: white !important; }}
     </style>
 
     <div class="petal" style="left:15%; animation-duration:8s;">🌸</div>
+    <div class="petal" style="left:45%; animation-duration:11s;">🌸</div>
+    <div class="petal" style="left:75%; animation-duration:9s;">🌸</div>
     <div class="petal" style="left:45%; animation-duration:11s;">🌸</div>
     <div class="petal" style="left:75%; animation-duration:9s;">🌸</div>
 """, unsafe_allow_html=True)
@@ -124,11 +126,11 @@ if 'name' not in st.session_state: st.session_state.name = ""
 
 # BƯỚC 1: TRANG CHỦ
 if st.session_state.step == 1:
-    st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân bính ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
     name = st.text_input("", placeholder="Nhập tên của bạn vào đây nha...", key="name_input")
     st.markdown('<div class="nav-container">', unsafe_allow_html=True)
-    if st.button("Bắt đầu hái lộc ➔", key="start_btn"):
+    if st.button("CÙng di chuyển đến bất ngờ nàoooo ➔", key="start_btn"):
         if name:
             st.session_state.name = name
             st.session_state.step = 2
@@ -150,7 +152,6 @@ elif st.session_state.step == 2:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # BƯỚC 3: KẾT QUẢ
-# BƯỚC 3: KẾT QUẢ
 elif st.session_state.step == 3:
     st.balloons()
     st.markdown(f'<div class="glass-box"><div class="title-dragon">Vạn sự như ý</div><div class="text-phoenix">{st.session_state.gift}</div></div>', unsafe_allow_html=True)
@@ -159,12 +160,13 @@ elif st.session_state.step == 3:
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
     
     col_img1, col_img2 = st.columns(2) # Chia làm 2 cột
-    
+
+    # link ảnh 1
     with col_img1:
         st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif", use_container_width=True)
         
     with col_img2:
-        # Ông thay link ảnh thứ 2 vào đây nhé
+        # Link ảnh 2
         st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif", use_container_width=True)
     
     st.markdown('<div class="nav-container">', unsafe_allow_html=True)
