@@ -15,75 +15,19 @@ components.html(
     height=0,
 )
 
-# --- 3. KHO LỜI CHÚC ĐA DẠNG (RANDOM CAO) ---
+# --- 3. KHO LỜI CHÚC ĐA DẠNG ---
 luck_data = {
-    "❤️ Tình duyên": [
-        "Hạnh phúc viên mãn, sớm tìm thấy nửa kia nhé!",
-        "Tình duyên nở rộ, vạn người theo đuổi luôn!",
-        "Năm mới có hỷ sự, tình cảm thăng hoa nha!",
-        "Người ấy sắp xuất hiện, chuẩn bị tinh thần nhé!",
-        "Tình yêu ngọt ngào, hạnh phúc bền lâu nha!",
-        "Gặp đúng người, yêu đúng lúc, đời tươi vui nhé!"
-    ],
-    "💼 Sự nghiệp": [
-        "Công thành danh toại, thăng quan tiến chức nhé!",
-        "Sự nghiệp bứt phá, khẳng định vị thế nha!",
-        "Quý nhân phù trợ, làm gì cũng thuận lợi nhé!",
-        "Vạn sự hanh thông, đường công danh rộng mở nha!",
-        "Lên chức như diều gặp gió, sếp quý đồng nghiệp thương nhé!",
-        "Dự án thành công rực rỡ, doanh thu vượt mong đợi nha!"
-    ],
-    "🐎 Sức khỏe": [
-        "Khỏe như ngựa chiến, vạn dặm bình an nhé!",
-        "Năng lượng dồi dào, tinh thần minh mẫn nha!",
-        "Thân cường tật nhược, trẻ mãi không già nhé!",
-        "Sức khỏe dẻo dai, vượt mọi thử thách nha!",
-        "Ăn ngon ngủ kỹ, đời sống an nhiên nhé!",
-        "Tâm an thân khỏe, mọi sự đều nhẹ nhàng nha!"
-    ],
-    "💰 Tiền tài": [
-        "Tiền vào như nước, ví luôn căng đầy nhé!",
-        "Lộc phát đầy kho, vàng bạc đầy tay nha!",
-        "Đầu tư đâu thắng đó, tài lộc bủa vây nhé!",
-        "Tiền bạc rủng rỉnh, tiêu xài thoải mái nha!",
-        "Vận may tiền bạc sắp gõ cửa nhà bạn đó!",
-        "Kinh doanh phát đạt, lộc rơi đầy túi nhé!"
-    ],
-    "🏠 Gia đình": [
-        "Gia đạo bình an, ấm êm hạnh phúc nhé!",
-        "Cả nhà sum vầy, tiếng cười rộn rã nha!",
-        "Trên dưới thuận hòa, vạn sự như ý nhé!",
-        "Gia đình luôn là bến đỗ bình yên nhất nha!",
-        "Con cháu hiếu thảo, ông bà bách niên giai lão nhé!",
-        "Hạnh phúc đong đầy trong từng góc nhỏ ngôi nhà nha!"
-    ],
-    "🎓 Học tập": [
-        "Học một biết mười, thi cử đỗ đạt nhé!",
-        "Kiến thức uyên thâm, đạt học bổng cao nha!",
-        "Đường học rộng mở, công danh rạng rỡ nhé!",
-        "Mở mang trí tuệ, chinh phục mọi đỉnh cao nha!",
-        "Học tới đâu nhớ tới đó, thi đâu đậu đó nhé!",
-        "Khai sáng trí tuệ, đạt nhiều giải thưởng lớn nha!"
-    ],
-    "🍀 May mắn": [
-        "Vạn sự như ý, tỷ sự như mơ nhé!",
-        "Cầu được ước thấy, may mắn mỉm cười nha!",
-        "Vận khí hanh thông, hóa hung thành cát nhé!",
-        "Số đỏ cả năm, không gì là không thể nha!",
-        "Gặp toàn chuyện vui, điều lành tự tìm đến nhé!",
-        "Phúc lộc tràn trề, may mắn vây quanh cả năm nha!"
-    ],
-    "🎁 Bất ngờ": [
-        "Quà khủng sắp tới, niềm vui nhân đôi nhé!",
-        "Một bước ngoặt mới đầy thú vị nha!",
-        "Vạn điều kỳ diệu đang chờ đợi bạn nhé!",
-        "Sắp có tin vui bất ngờ từ phương xa nha!",
-        "Một món quà vô giá sắp đến với cuộc đời bạn nhé!",
-        "Cơ hội đổi đời sắp xuất hiện, nắm lấy nha!"
-    ]
+    "❤️ Tình duyên": ["Hạnh phúc viên mãn, sớm tìm thấy nửa kia nhé!", "Tình duyên nở rộ, vạn người theo đuổi luôn!", "Năm mới có hỷ sự, tình cảm thăng hoa nha!"],
+    "💼 Sự nghiệp": ["Công thành danh toại, thăng quan tiến chức nhé!", "Sự nghiệp bứt phá, khẳng định vị thế nha!", "Quý nhân phù trợ, làm gì cũng thuận lợi nhé!"],
+    "🐎 Sức khỏe": ["Khỏe như ngựa chiến, vạn dặm bình an nhé!", "Năng lượng dồi dào, tinh thần minh mẫn nha!"],
+    "💰 Tiền tài": ["Tiền vào như nước, ví luôn căng đầy nhé!", "Lộc phát đầy kho, vàng bạc đầy tay nha!"],
+    "🏠 Gia đình": ["Gia đạo bình an, ấm êm hạnh phúc nhé!", "Cả nhà sum vầy, tiếng cười rộn rã nha!"],
+    "🎓 Học tập": ["Học một biết mười, thi cử đỗ đạt nhé!", "Kiến thức uyên thâm, đạt học bổng cao nha!"],
+    "🍀 May mắn": ["Vạn sự như ý, tỷ sự như mơ nhé!", "Cầu được ước thấy, may mắn mỉm cười nha!"],
+    "🎁 Bất ngờ": ["Quà khủng sắp tới, niềm vui nhân đôi nhé!", "Một bước ngoặt mới đầy thú vị nha!"]
 }
 
-# --- 4. CSS TỔNG LỰC (MOBILE, FONT, HOA ĐÀO) ---
+# --- 4. CSS TỔNG LỰC (SET SIZE GIF LỚN HƠN) ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
@@ -123,13 +67,8 @@ st.markdown(f"""
     .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700; font-size: 65px; text-shadow: 2px 2px 10px #000; }}
     .text-phoenix {{ color: #F8F9FA; font-size: 35px; margin-top: 10px; }}
 
-    /* KHOẢNG CÁCH TƯƠNG TÁC */
-    .interaction-area {{
-        margin-top: 40px; 
-        text-align: center; width: 100%;
-    }}
+    .interaction-area {{ margin-top: 40px; text-align: center; width: 100%; }}
 
-    /* CSS RIÊNG CHO PC */
     @media (min-width: 768px) {{
         .interaction-area {{ margin-top: 380px; }}
         .title-dragon {{ font-size: 85px; }}
@@ -159,6 +98,17 @@ st.markdown(f"""
         background: #FFD700 !important; text-transform: none !important;
     }}
     .nav-container div.stButton > button p {{ font-size: 28px !important; color: #800000 !important; }}
+
+    /* --- SET SIZE GIF LỚN HƠN TẠI ĐÂY --- */
+    [data-testid="stImage"] img {{
+        max-width: 650px !important; /* Tăng từ 450 lên 650px cho GIF to rõ */
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 25px;
+        border: 5px solid #FFD700;
+        box-shadow: 0px 10px 40px rgba(0,0,0,0.6);
+        margin: 20px auto !important;
+    }}
 
     .stButton > button:hover {{ transform: scale(1.03) !important; background: white !important; }}
     </style>
@@ -203,12 +153,16 @@ elif st.session_state.step == 2:
 elif st.session_state.step == 3:
     st.balloons()
     st.markdown(f'<div class="glass-box"><div class="title-dragon">Vạn sự như ý</div><div class="text-phoenix">{st.session_state.gift}</div></div>', unsafe_allow_html=True)
-    st.markdown('<div class="interaction-area nav-container">', unsafe_allow_html=True)
+    st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
+    
+    # GIF ĐƯỢC HIỂN THỊ VỚI SIZE ĐÃ SET TRONG CSS
     st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif")
+    
+    st.markdown('<div class="nav-container">', unsafe_allow_html=True)
     if st.button("Hái lộc khác ↺", key="reset_btn"):
         st.session_state.step = 2
         st.rerun()
     if st.button("Về trang chủ", key="home_btn"):
         st.session_state.step = 1
         st.rerun()
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div></div>', unsafe_allow_html=True)
