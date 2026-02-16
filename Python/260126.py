@@ -16,7 +16,7 @@ luck_data = {
     "🎁 Bất Ngờ": ["Quà khủng sắp tới, niềm vui nhân đôi!", "Một bước ngoặt mới đầy thú vị!"]
 }
 
-# --- 3. CSS "CÔNG PHÁ" GIAO DIỆN ---
+# --- 3. CSS: CHIA SET SIZE RIÊNG BIỆT ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
@@ -35,25 +35,25 @@ st.markdown(f"""
         top: 2%; left: 50%;
         transform: translateX(-50%);
         width: 95%; max-width: 900px;
-        background: rgba(139, 0, 0, 0.85); 
-        backdrop-filter: blur(20px);
-        padding: 30px 20px;
+        background: rgba(139, 0, 0, 0.82); 
+        backdrop-filter: blur(15px);
+        padding: 25px 20px;
         border-radius: 30px;
         border: 4px solid #FFD700;
         text-align: center;
         z-index: 100;
     }}
 
-    .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700 !important; font-size: 85px !important; text-shadow: 4px 4px 10px #000000; }}
-    .text-phoenix {{ font-family: 'Dancing Script', cursive !important; color: #F8F9FA !important; font-size: 45px !important; text-shadow: 3px 3px 6px #000000; }}
+    .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700 !important; font-size: 80px !important; text-shadow: 4px 4px 10px #000000; }}
+    .text-phoenix {{ font-family: 'Dancing Script', cursive !important; color: #F8F9FA !important; font-size: 40px !important; text-shadow: 3px 3px 6px #000000; }}
 
     .interaction-area {{
-        margin-top: 430px; 
+        margin-top: 420px; 
         text-align: center;
         width: 100%;
     }}
 
-    /* Ô NHẬP TÊN: FULL TRANG NHƯNG SIZE BÉ */
+    /* 1. SET SIZE Ô NHẬP TÊN (Bé, Full-width) */
     div.stTextInput {{ width: 100% !important; max-width: 850px !important; margin: 0 auto !important; }}
     div.stTextInput > div > div > input {{
         font-family: 'Dancing Script', cursive !important;
@@ -64,49 +64,50 @@ st.markdown(f"""
         background-color: rgba(255, 255, 255, 0.9) !important;
     }}
 
-    /* CHIÊU CUỐI: ÉP TOÀN BỘ NÚT BẤM PHẢI TO */
+    /* CSS GỐC CHO TẤT CẢ NÚT */
     div.stButton > button {{
-        width: 100% !important; /* Luôn bung hết 100% không gian cho phép */
+        width: 100% !important;
         background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%) !important;
-        border: 4px solid #ffffff !important;
-        border-radius: 30px !important;
-        box-shadow: 0px 15px 30px rgba(0,0,0,0.8) !important;
+        border: 3px solid #ffffff !important;
+        border-radius: 25px !important;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.6) !important;
         transition: all 0.3s ease !important;
-        display: block !important;
     }}
-
-    /* CHỮ TRONG NÚT - ÉP SIZE KHỦNG */
     div.stButton > button p {{
         font-family: 'Dancing Script', cursive !important;
         font-weight: 900 !important;
         color: #800000 !important;
-        font-size: 65px !important; /* TĂNG LÊN 65PX */
-        line-height: 1.2 !important;
+        margin: 0 !important;
     }}
 
-    /* RIÊNG NÚT BẮT ĐẦU VÀ NÚT RESET: BÉ LẠI XÍU CHO CÂN ĐỐI */
-    .small-btn div.stButton > button {{
+    /* 2. SET SIZE CHO CÁC NÚT OPTION (Túi Lộc) */
+    .option-container div.stButton > button {{
+        height: 170px !important;
+        margin-bottom: 20px !important;
+    }}
+    .option-container div.stButton > button p {{
+        font-size: 55px !important; /* Size khổng lồ */
+    }}
+
+    /* 3. SET SIZE CHO NÚT CHUYỂN TIẾP (Bắt đầu, Quay lại...) */
+    .nav-container div.stButton > button {{
         max-width: 400px !important;
         margin: 0 auto !important;
-        height: 90px !important;
+        height: 80px !important;
+        border-radius: 50px !important; /* Bo tròn hơn nhìn cho khác biệt */
     }}
-    .small-btn div.stButton > button p {{
-        font-size: 35px !important;
-    }}
-
-    /* CÁC NÚT OPTION: KHỔNG LỒ */
-    .big-option div.stButton > button {{
-        height: 180px !important; /* CAO HƠN NỮA */
+    .nav-container div.stButton > button p {{
+        font-size: 32px !important; /* Size vừa phải */
     }}
 
     .stButton > button:hover {{ transform: scale(1.05); background: #ffffff !important; }}
     .stButton > button:hover p {{ color: #FF0000 !important; }}
 
-    [data-testid="stImage"] img {{ width: 100% !important; max-width: 650px !important; border-radius: 25px; border: 5px solid #FFD700; }}
+    [data-testid="stImage"] img {{ width: 100% !important; max-width: 600px !important; border-radius: 25px; border: 5px solid #FFD700; }}
     </style>
 """, unsafe_allow_html=True)
 
-# --- 4. LOGIC ---
+# --- 4. LOGIC CHƯƠNG TRÌNH ---
 if 'step' not in st.session_state: st.session_state.step = 1
 if 'name' not in st.session_state: st.session_state.name = ""
 
@@ -114,8 +115,9 @@ if 'name' not in st.session_state: st.session_state.name = ""
 if st.session_state.step == 1:
     st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
-    name = st.text_input("", placeholder="Nhập tên để hái lộc...", key="name_input")
-    st.markdown('<div class="small-btn">', unsafe_allow_html=True)
+    name = st.text_input("", placeholder="Nhập danh tính để hái lộc đầu năm...", key="name_input")
+    # Sử dụng class nav-container cho nút Bắt đầu
+    st.markdown('<div class="nav-container">', unsafe_allow_html=True)
     if st.button("Bắt Đầu Hái Lộc ➔", key="start_btn"):
         if name:
             st.session_state.name = name
@@ -123,23 +125,27 @@ if st.session_state.step == 1:
             st.rerun()
     st.markdown('</div></div>', unsafe_allow_html=True)
 
-# BƯỚC 2: CHỌN OPTION (SIÊU CẤP)
+# BƯỚC 2: CHỌN OPTION
 elif st.session_state.step == 2:
-    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một đại lộc khổng lồ</div></div>', unsafe_allow_html=True)
-    st.markdown('<div class="interaction-area big-option">', unsafe_allow_html=True)
+    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một đại lộc dưới đây</div></div>', unsafe_allow_html=True)
+    # Sử dụng class option-container cho các túi lộc
+    st.markdown('<div class="interaction-area option-container">', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     options = list(luck_data.keys())
     for i, opt in enumerate(options):
         with (col1 if i % 2 == 0 else col2):
-            # Mỗi nút được bọc trong class big-option để kích size
-            st.button(opt, key=f"big_opt_{i}", on_click=lambda o=opt: (st.session_state.update({"gift": random.choice(luck_data[o]), "step": 3})))
+            if st.button(opt, key=f"big_opt_{i}"):
+                st.session_state.gift = random.choice(luck_data[opt])
+                st.session_state.step = 3
+                st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
 # BƯỚC 3: KẾT QUẢ
 elif st.session_state.step == 3:
     st.markdown(f'<div class="glass-box"><div class="title-dragon">Vạn Sự Như Ý</div><div class="text-phoenix">{st.session_state.gift}</div></div>', unsafe_allow_html=True)
-    st.markdown('<div class="interaction-area small-btn">', unsafe_allow_html=True)
+    # Sử dụng class nav-container cho các nút quay lại
+    st.markdown('<div class="interaction-area nav-container">', unsafe_allow_html=True)
     st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxV3VfO1YyI/giphy.gif")
     if st.button("Hái Lộc Khác ↺", key="reset_btn"):
         st.session_state.step = 2
