@@ -2,38 +2,61 @@ import streamlit as st
 import time
 
 # --- CẤU HÌNH TRANG ---
-st.set_page_config(page_title="Chúc Mừng Năm Mới Bính Ngọ 2026", page_icon="🐎", layout="centered")
+st.set_page_config(page_title="Chúc Mừng Năm Mới 2026", page_icon="🐎", layout="centered")
 
-# --- HIỆU ỨNG PHÁO HOA RỰC RỠ (SỬA LẠI) ---
-st.markdown("""
-    <canvas id="fireworksCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;"></canvas>
+# --- PHẦN 1: CÀI ĐẶT BACKGROUND & PHÁO HOA ---
+# Bạn có thể thay link ảnh nền ở dòng 'background-image' bên dưới
+background_image_url = "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2069&auto=format&fit=crop" 
+
+st.markdown(f"""
+    <style>
+    .stApp {{
+        background-image: url("{background_image_url}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+    /* Làm mờ một chút để dễ đọc chữ */
+    .stApp::before {{
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); 
+        z-index: -1;
+    }}
+    h1, h2, h3, p, .stMarkdown {{
+        color: #FFD700 !important; /* Màu vàng đồng cho hợp không khí Tết */
+        text-shadow: 2px 2px 4px #000000;
+        text-align: center;
+    }}
+    </style>
+    
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
-        function shoot() {
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#ff0000', '#ffd700', '#ffffff', '#ff4500']
-            });
-        }
-        // Bắn pháo hoa ngay lập tức và lặp lại
-        shoot();
-        setInterval(shoot, 2000);
+        var count = 200;
+        var defaults = {{ origin: {{ y: 0.7 }} }};
+
+        function fire(particleRatio, opts) {{
+          confetti(Object.assign({{}}, defaults, opts, {{
+            particleCount: Math.floor(count * particleRatio)
+          }}));
+        }}
+
+        function autoFire() {{
+            fire(0.25, {{ spread: 26, startVelocity: 55 }});
+            fire(0.2, {{ spread: 60 }});
+            fire(0.35, {{ spread: 100, decay: 0.91, scalar: 0.8 }});
+            fire(0.1, {{ spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 }});
+            fire(0.1, {{ spread: 120, startVelocity: 45 }});
+        }}
+        
+        // Bắn pháo hoa mỗi 3 giây
+        setInterval(autoFire, 3000);
+        autoFire(); 
     </script>
-    <style>
-        .stApp {
-            background-color: #0e1117;
-            color: #ffd700;
-        }
-        h1, h2, h3 {
-            color: #ff4b4b !important;
-            text-align: center;
-        }
-    </style>
 """, unsafe_allow_html=True)
 
-# --- QUẢN LÝ SESSION STATE ---
+# --- QUẢN LÝ CÁC BƯỚC (SESSION STATE) ---
 if 'step' not in st.session_state:
     st.session_state.step = 1
 if 'name' not in st.session_state:
@@ -43,57 +66,44 @@ if 'name' not in st.session_state:
 
 # BƯỚC 1: NHẬP TÊN
 if st.session_state.step == 1:
-    st.title("🧧 CHÀO ĐÓN XUÂN BÍNH NGỌ 2026 🐎")
-    st.write("---")
-    name_input = st.text_input("Vui lòng cho biết quý danh của bạn:", placeholder="Nhập tên tại đây...")
+    st.title("🧧 XUÂN BÍNH NGỌ 2026 🐎")
+    st.write("Chào mừng bạn đến với trang chúc Tết!")
+    name_input = st.text_input("Nhập tên của bạn để bắt đầu:", placeholder="Tên bạn là...")
     if st.button("Tiếp tục ➔"):
         if name_input:
             st.session_state.name = name_input
             st.session_state.step = 2
             st.rerun()
         else:
-            st.error("Bạn chưa nhập tên mà!")
+            st.warning("Hãy nhập tên nhé!")
 
-# BƯỚC 2: CHỌN QUÀ (MÀN HÌNH CŨ BIẾN MẤT)
+# BƯỚC 2: CHỌN LỘC
 elif st.session_state.step == 2:
     st.title(f"🐎 Chào {st.session_state.name}!")
-    st.subheader("Năm Bính Ngọ này, bạn muốn nhận 'Lộc' gì nhất?")
-    st.write("Hãy chọn một món quà dưới đây:")
+    st.subheader("Chọn một túi lộc may mắn cho năm Bính Ngọ:")
     
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("🧧 Tiền Tài (Mã Đáo Thành Công)"):
-            st.session_state.gift = "Tiền vào như nước, công việc hanh thông, mã đáo thành công!"
+        if st.button("💰 Tài Lộc"):
+            st.session_state.gift = "Tiền vào như nước, Mã đáo thành công!"
             st.session_state.step = 3
             st.rerun()
     with col2:
-        if st.button("🐎 Sức Khỏe (Dẻo Dai Như Ngựa Chiến)"):
-            st.session_state.gift = "Sức khỏe dẻo dai, bền bỉ và luôn tràn đầy năng lượng!"
-            st.session_state.step = 3
-            st.rerun()
-            
-    col3, col4 = st.columns(2)
-    with col3:
-        if st.button("🌹 Tình Duyên (Hạnh Phúc Ngập Tràn)"):
-            st.session_state.gift = "Tình duyên phơi phới, hạnh phúc viên mãn bên người thân yêu!"
-            st.session_state.step = 3
-            st.rerun()
-    with col4:
-        if st.button("🎓 Trí Tuệ (Học Một Biết Mười)"):
-            st.session_state.gift = "Thông minh sáng suốt, thi cử đỗ đạt, thăng tiến vèo vèo!"
+        if st.button("❤️ Tình Duyên"):
+            st.session_state.gift = "Hạnh phúc đong đầy, vạn sự như ý!"
             st.session_state.step = 3
             st.rerun()
 
-# BƯỚC 3: KẾT QUẢ CUỐI CÙNG
+# BƯỚC 3: KẾT QUẢ
 elif st.session_state.step == 3:
-    st.title("🎊 CHÚC MỪNG NĂM MỚI 2026 🎊")
-    st.balloons()
-    st.header(f"Chúc bạn {st.session_state.name}:")
+    st.title("🎊 CHÚC MỪNG NĂM MỚI! 🎊")
+    st.balloons() # Kết hợp cả bóng bay của Streamlit
+    st.header(f"Chúc {st.session_state.name}:")
     st.success(st.session_state.gift)
     
-    # Hình ảnh linh vật ngựa
+    # Bạn có thể thay link ảnh GIF ngựa ở đây
     st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreXRxZzRreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxV3VfO1YyI/giphy.gif")
     
-    if st.button("Nhận lời chúc khác ↺"):
+    if st.button("Quay lại từ đầu"):
         st.session_state.step = 1
         st.rerun()
