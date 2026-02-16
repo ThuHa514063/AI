@@ -130,7 +130,7 @@ if st.session_state.step == 1:
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
     name = st.text_input("", placeholder="Nhập tên của bạn vào đây nha...", key="name_input")
     st.markdown('<div class="nav-container">', unsafe_allow_html=True)
-    if st.button("CÙng di chuyển đến bất ngờ nàoooo ➔", key="start_btn"):
+    if st.button("Cùng di chuyển đến bất ngờ nàoooo ➔", key="start_btn"):
         if name:
             st.session_state.name = name
             st.session_state.step = 2
@@ -139,7 +139,7 @@ if st.session_state.step == 1:
 
 # BƯỚC 2: CHỌN OPTION
 elif st.session_state.step == 2:
-    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một túi lộc bất kỳ nhé</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="glass-box"><div class="title-dragon">Xin chào {st.session_state.name}</div><div class="text-phoenix">Hãy chọn một túi lì xì bất kỳ nhé 😘</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area option-container">', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     options = list(luck_data.keys())
@@ -170,7 +170,7 @@ elif st.session_state.step == 3:
         st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif", use_container_width=True)
     
     st.markdown('<div class="nav-container">', unsafe_allow_html=True)
-    if st.button("Hái lộc khác ↺", key="reset_btn"):
+    if st.button("Chọn túi lì xì khác nàoooo ↺", key="reset_btn"):
         st.session_state.step = 2
         st.rerun()
     if st.button("Về trang chủ", key="home_btn"):
