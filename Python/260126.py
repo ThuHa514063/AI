@@ -25,7 +25,7 @@ st.markdown(f"""
         z-index: -1;
     }}
     h1, h2, h3, p, .stMarkdown {{
-        color: #FF4B4B !important; /* Màu vàng đồng cho hợp không khí Tết */
+        color: #FFD700 !important; /* Màu vàng đồng cho hợp không khí Tết */
         text-shadow: 2px 2px 4px #000000;
         text-align: center;
     }}
