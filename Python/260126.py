@@ -150,13 +150,22 @@ elif st.session_state.step == 2:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # BƯỚC 3: KẾT QUẢ
+# BƯỚC 3: KẾT QUẢ
 elif st.session_state.step == 3:
     st.balloons()
     st.markdown(f'<div class="glass-box"><div class="title-dragon">Vạn sự như ý</div><div class="text-phoenix">{st.session_state.gift}</div></div>', unsafe_allow_html=True)
+    
+    # --- KHU VỰC 2 ẢNH HÀNG NGANG ---
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
     
-    # GIF ĐƯỢC HIỂN THỊ VỚI SIZE ĐÃ SET TRONG CSS
-    st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif")
+    col_img1, col_img2 = st.columns(2) # Chia làm 2 cột
+    
+    with col_img1:
+        st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif", use_container_width=True)
+        
+    with col_img2:
+        # Ông thay link ảnh thứ 2 vào đây nhé
+        st.image("https://i.pinimg.com/originals/5d/74/75/5d74758107b2ae3ba50e4a163a1f4596.gif", use_container_width=True)
     
     st.markdown('<div class="nav-container">', unsafe_allow_html=True)
     if st.button("Hái lộc khác ↺", key="reset_btn"):
