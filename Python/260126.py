@@ -21,11 +21,11 @@ st.markdown(f"""
         content: "";
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        background-color: rgba(0, 0, 0, 0.6); 
+        background-color: rgba(0, 0, 0, 0.8); 
         z-index: -1;
     }}
     h1, h2, h3, p, .stMarkdown {{
-        color: #E0E0E0 !important; /* Màu vàng đồng cho hợp không khí Tết */
+        color: #FF4B4B !important; /* Màu vàng đồng cho hợp không khí Tết */
         text-shadow: 2px 2px 4px #000000;
         text-align: center;
     }}
