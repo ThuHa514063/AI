@@ -16,7 +16,7 @@ luck_data = {
     "🎁 Bất Ngờ": ["Quà khủng sắp tới, niềm vui nhân đôi!", "Một bước ngoặt mới đầy thú vị!", "Vạn điều kỳ diệu đang chờ đợi bạn!"]
 }
 
-# --- 3. GIAO DIỆN CSS: GIẢM SIZE Ô NHẬP 10PX ---
+# --- 3. GIAO DIỆN CSS: OPTION SIÊU TO KHỔNG LỒ ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
@@ -35,11 +35,11 @@ st.markdown(f"""
         top: 5%; left: 50%;
         transform: translateX(-50%);
         width: 95%; max-width: 900px;
-        background: rgba(139, 0, 0, 0.75); 
+        background: rgba(139, 0, 0, 0.8); 
         backdrop-filter: blur(15px);
         padding: 30px 20px;
         border-radius: 30px;
-        border: 3px solid #FFD700;
+        border: 4px solid #FFD700;
         text-align: center;
         z-index: 100;
     }}
@@ -54,28 +54,26 @@ st.markdown(f"""
         width: 100%;
     }}
 
-    /* Ô NHẬP TÊN: GIẢM SIZE (Chiều cao 60->50, Chữ 24->14) */
-    div.stTextInput {{
-        width: 100% !important; 
-        max-width: 800px !important;
-    }}
+    /* Ô NHẬP TÊN: TINH TẾ (GIẢM SIZE NHƯ Ý ÔNG) */
+    div.stTextInput {{ width: 100% !important; max-width: 800px !important; }}
     div.stTextInput > div > div > input {{
         font-family: 'Dancing Script', cursive !important;
-        font-size: 14px !important; /* Giảm 10px so với trước */
+        font-size: 16px !important; 
         text-align: center;
         border-radius: 12px;
-        height: 50px !important; /* Giảm 10px chiều cao */
+        height: 45px !important;
         border: 2px solid #FFD700 !important;
         background-color: rgba(255, 255, 255, 0.9) !important;
     }}
 
-    /* NÚT BẤM CHUNG */
+    /* CẤU TRÚC NÚT BẤM CHUNG */
     .stButton > button {{
         background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%) !important;
-        border: 3px solid #ffffff !important;
-        border-radius: 25px !important;
-        box-shadow: 0px 10px 20px rgba(0,0,0,0.6) !important;
-        margin-bottom: 15px !important;
+        border: 4px solid #ffffff !important;
+        border-radius: 30px !important;
+        box-shadow: 0px 15px 30px rgba(0,0,0,0.7) !important;
+        margin-bottom: 25px !important;
+        transition: all 0.3s ease !important;
     }}
     .stButton > button p {{
         font-family: 'Dancing Script', cursive !important;
@@ -84,28 +82,26 @@ st.markdown(f"""
         margin: 0 !important;
     }}
 
-    /* NÚT BẮT ĐẦU */
+    /* NÚT BẮT ĐẦU: CÂN ĐỐI */
     .start-btn-container .stButton > button {{
-        width: 350px !important;
-        height: 80px !important;
+        width: 380px !important;
+        height: 85px !important;
     }}
-    .start-btn-container .stButton > button p {{
-        font-size: 30px !important;
-    }}
+    .start-btn-container .stButton > button p {{ font-size: 32px !important; }}
 
-    /* CÁC NÚT OPTION */
+    /* CÁC NÚT OPTION: PHÓNG TO HẾT CỠ (MAX SIZE) */
     .option-btn-container .stButton > button {{
         width: 100% !important;
-        height: 120px !important;
+        height: 160px !important; /* SIÊU CAO */
     }}
     .option-btn-container .stButton > button p {{
-        font-size: 45px !important;
+        font-size: 55px !important; /* SIÊU TO */
     }}
 
-    .stButton > button:hover {{ transform: scale(1.03); background: #ffffff !important; }}
+    .stButton > button:hover {{ transform: scale(1.05) translateY(-5px); background: #ffffff !important; }}
     .stButton > button:hover p {{ color: #FF0000 !important; }}
 
-    [data-testid="stImage"] img {{ width: 100% !important; max-width: 600px !important; border-radius: 25px; border: 5px solid #FFD700; }}
+    [data-testid="stImage"] img {{ width: 100% !important; max-width: 650px !important; border-radius: 25px; border: 5px solid #FFD700; }}
     </style>
 """, unsafe_allow_html=True)
 
@@ -117,7 +113,7 @@ if 'name' not in st.session_state: st.session_state.name = ""
 if st.session_state.step == 1:
     st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân Bính Ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
-    name = st.text_input("", placeholder="Vui lòng nhập tên của bạn...", key="name_input")
+    name = st.text_input("", placeholder="Nhập tên để nhận lộc đại cát...", key="name_input")
     st.markdown('<div class="start-btn-container">', unsafe_allow_html=True)
     if st.button("Bắt Đầu Hái Lộc ➔", key="start_btn"):
         if name:
@@ -126,10 +122,12 @@ if st.session_state.step == 1:
             st.rerun()
     st.markdown('</div></div>', unsafe_allow_html=True)
 
-# BƯỚC 2: CHỌN OPTION
+# BƯỚC 2: CHỌN OPTION (SIÊU TO)
 elif st.session_state.step == 2:
-    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một đại lộc dưới đây</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một đại lộc khổng lồ bên dưới</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area option-btn-container">', unsafe_allow_html=True)
+    
+    # Chia 2 cột nhưng mỗi nút đều to hoành tráng
     col1, col2 = st.columns(2)
     options = list(luck_data.keys())
     for i, opt in enumerate(options):
