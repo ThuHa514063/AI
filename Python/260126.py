@@ -4,7 +4,7 @@ import random
 # --- 1. CẤU HÌNH TRANG ---
 st.set_page_config(page_title="Hái Lộc Bính Ngọ 2026", page_icon="🧨", layout="centered")
 
-# --- 2. KHO LỜI CHÚC (ĐÃ SỬA VIẾT HOA) ---
+# --- 2. KHO LỜI CHÚC ---
 luck_data = {
     "❤️ Tình duyên": ["Hạnh phúc viên mãn, sớm tìm thấy nửa kia nhé!", "Tình duyên nở rộ, vạn người theo đuổi luôn!"],
     "💼 Sự nghiệp": ["Công thành danh toại, thăng quan tiến chức nhé!", "Sự nghiệp bứt phá, khẳng định vị thế nha!"],
@@ -16,15 +16,15 @@ luck_data = {
     "🎁 Bất ngờ": ["Quà khủng sắp tới, niềm vui nhân đôi nhé!", "Một bước ngoặt mới đầy thú vị nha!"]
 }
 
-# --- 3. CSS TỔNG LỰC: ÉP FONT TOÀN BỘ & CHỈNH SIZE ---
+# --- 3. CSS TỔNG LỰC (FIX MOBILE & FONT) ---
 bg_link = "https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/634841953_1357693106160997_7648237787659667592_n.png?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHJf9AM3HXJ6kfr-qgw9rjx1-Jcnnd5zF_X4lyed3nMX9wVLwF7e8n5eTVfZLd-py4hGknrSIXd9W_kqVRkgKfW&_nc_ohc=oAt5f1xFjEsQ7kNvwHRx6y_&_nc_oc=AdnOB3WYKuDCTz-x7aC9jr_LvcZCa5iKY8HVLJe5MlTyajQNK81csXN3udEbHjOJpXtIIMIY_rO0rPrSgYSlCZhq&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=dJNyq-MhsfFyiv7V2T1_Bw&oh=00_Afsv-Fz9l1RH10V4gLuDlb9uEemSjsuariKmQt1pMADemw&oe=69991725"
 
 st.markdown(f"""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
 
-    /* ÉP FONT TOÀN BỘ APP */
-    * {{
+    /* ÉP FONT TOÀN BỘ */
+    html, body, [class*="st-"] {{
         font-family: 'Dancing Script', cursive !important;
     }}
 
@@ -32,84 +32,74 @@ st.markdown(f"""
         background-image: url("{bg_link}");
         background-size: cover;
         background-position: center top;
-        background-attachment: fixed;
     }}
 
     /* HIỆU ỨNG HOA ĐÀO RƠI */
     @keyframes flower-drop {{
-        0% {{ top: -10%; transform: translateX(0) rotate(0deg); }}
-        100% {{ top: 100%; transform: translateX(100px) rotate(360deg); }}
+        0% {{ top: -10%; transform: rotate(0deg); }}
+        100% {{ top: 100%; transform: rotate(360deg); }}
     }}
     .petal {{
-        position: fixed; color: #ffb7c5; font-size: 25px;
+        position: fixed; color: #ffb7c5; font-size: 20px;
         z-index: 999; pointer-events: none;
-        animation: flower-drop 10s linear infinite;
+        animation: flower-drop 8s linear infinite;
     }}
 
-    /* KHUNG CHỮ CHÍNH */
+    /* KHUNG TIÊU ĐỀ */
     .glass-box {{
-        position: absolute; top: 2%; left: 50%; transform: translateX(-50%);
-        width: 95%; max-width: 900px; background: rgba(139, 0, 0, 0.85); 
-        backdrop-filter: blur(15px); padding: 25px; border-radius: 30px;
-        border: 4px solid #FFD700; text-align: center; z-index: 100;
+        position: relative; margin: 20px auto;
+        width: 90%; max-width: 800px; background: rgba(139, 0, 0, 0.85); 
+        padding: 20px; border-radius: 20px;
+        border: 3px solid #FFD700; text-align: center;
     }}
-    
-    /* Tiêu đề dùng Great Vibes cho nghệ */
-    .title-dragon {{ 
-        font-family: 'Great Vibes', cursive !important; 
-        color: #FFD700 !important; 
-        font-size: 80px !important; 
-        text-shadow: 4px 4px 10px #000; 
-    }}
-    
-    .text-phoenix {{ color: #F8F9FA !important; font-size: 40px !important; }}
+    .title-dragon {{ font-family: 'Great Vibes', cursive !important; color: #FFD700; font-size: 60px; text-shadow: 2px 2px 5px #000; line-height: 1; }}
+    .text-phoenix {{ color: #F8F9FA; font-size: 30px; }}
 
-    .interaction-area {{ margin-top: 420px; text-align: center; width: 100%; }}
+    /* KHU VỰC TƯƠNG TÁC (TỰ THÍCH NGHI) */
+    .interaction-area {{
+        margin-top: 50px; /* Mặc định cho mobile */
+        text-align: center; width: 100%;
+    }}
+
+    /* CSS RIÊNG CHO MÁY TÍNH (MÀN HÌNH RỘNG) */
+    @media (min-width: 768px) {{
+        .interaction-area {{ margin-top: 380px; }}
+        .title-dragon {{ font-size: 80px; }}
+        .text-phoenix {{ font-size: 40px; }}
+    }}
 
     /* INPUT TÊN */
     div.stTextInput input {{
-        font-size: 18px !important; 
-        text-align: center; height: 45px !important; border: 2px solid #FFD700 !important;
-        border-radius: 15px !important;
-        background-color: white !important;
-        color: black !important;
+        font-family: 'Dancing Script', cursive !important;
+        font-size: 20px !important; text-align: center;
+        border: 2px solid #FFD700 !important; border-radius: 10px;
+        background: white !important; color: black !important;
     }}
 
-    /* SET SIZE CHO OPTION (50px, VIẾT THƯỜNG) */
+    /* OPTION BUTTONS */
     .option-container div.stButton > button {{
-        height: 160px !important;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #B8860B 100%) !important;
-        border: 4px solid #ffffff !important;
-        border-radius: 20px !important;
-        text-transform: none !important; /* Không tự động viết hoa */
+        height: 140px !important; margin-bottom: 15px !important;
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
+        border: 3px solid #fff !important; text-transform: none !important;
     }}
     .option-container div.stButton > button p {{
-        font-size: 50px !important; 
-        font-weight: 900 !important;
-        color: #800000 !important;
+        font-size: 40px !important; font-weight: 900 !important; color: #800000 !important;
     }}
 
-    /* SET SIZE CHO NÚT CHUYỂN TIẾP */
+    /* NAV BUTTONS */
     .nav-container div.stButton > button {{
-        height: 70px !important; max-width: 350px !important; margin: 0 auto !important;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
-        border-radius: 50px !important; border: 3px solid #fff !important;
-        text-transform: none !important;
+        height: 60px !important; max-width: 300px !important; margin: 0 auto !important;
+        border-radius: 30px !important; border: 2px solid #fff !important;
+        background: #FFD700 !important;
     }}
-    .nav-container div.stButton > button p {{
-        font-size: 28px !important;
-        color: #800000 !important;
-    }}
+    .nav-container div.stButton > button p {{ font-size: 24px !important; color: #800000 !important; }}
 
     .stButton > button:hover {{ transform: scale(1.05) !important; background: white !important; }}
-    .stButton > button:hover p {{ color: red !important; }}
     </style>
 
     <div class="petal" style="left:10%; animation-duration:7s;">🌸</div>
-    <div class="petal" style="left:30%; animation-duration:10s;">🌸</div>
-    <div class="petal" style="left:50%; animation-duration:8s;">🌸</div>
-    <div class="petal" style="left:70%; animation-duration:12s;">🌸</div>
-    <div class="petal" style="left:90%; animation-duration:9s;">🌸</div>
+    <div class="petal" style="left:40%; animation-duration:10s;">🌸</div>
+    <div class="petal" style="left:80%; animation-duration:8s;">🌸</div>
 """, unsafe_allow_html=True)
 
 # --- 4. LOGIC ---
@@ -120,7 +110,7 @@ if 'name' not in st.session_state: st.session_state.name = ""
 if st.session_state.step == 1:
     st.markdown('<div class="glass-box"><div class="title-dragon">Happy New Year</div><div class="text-phoenix">🏮 Xuân bính ngọ 2026 🏮</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area">', unsafe_allow_html=True)
-    name = st.text_input("", placeholder="Nhập tên của bạn vào đây nhé...", key="name_input")
+    name = st.text_input("", placeholder="Nhập tên của bạn vào đây...", key="name_input")
     st.markdown('<div class="nav-container">', unsafe_allow_html=True)
     if st.button("Bắt đầu hái lộc ➔", key="start_btn"):
         if name:
@@ -131,7 +121,7 @@ if st.session_state.step == 1:
 
 # BƯỚC 2: CHỌN OPTION
 elif st.session_state.step == 2:
-    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một túi lộc bên dưới nhé</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="glass-box"><div class="title-dragon">Chào {st.session_state.name}</div><div class="text-phoenix">Chọn một túi lộc nhé</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="interaction-area option-container">', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     options = list(luck_data.keys())
